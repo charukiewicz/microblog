@@ -5,7 +5,7 @@ from .forms import LoginForm
 @app.route('/')
 @app.route('/index')
 def index():
-	user = {'nickname': 'Miguel'}  # fake user
+	user = {'nickname': 'Christian'}  # fake user
 	posts = [  # fake array of posts
 		{
 			'author': {'nickname': 'John'}, 
@@ -27,4 +27,5 @@ def login():
 		return redirect('/index')
 	return render_template('login.html', 
 							title='Sign In',
-							form=form)
+							form=form,
+							providers=app.config['OPENID_PROVIDERS'])
